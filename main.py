@@ -4,6 +4,7 @@ import nltk
 from nltk.tokenize import sent_tokenize, RegexpTokenizer
 from nltk.stem.snowball import RussianStemmer
 import networkx as nx
+import sys
 
 def similarity(s1, s2):
     if not len(s1) or not len(s2):
@@ -54,7 +55,7 @@ def sorted_all_dict(my_d):
 
 
 send_data = []
-for stack_news in load_json('./dataset_public.json'):
+for stack_news in load_json(sys.argv[1]):
   word_one = []
   for one_news in stack_news['news']:
     word_not_one = analysis_news(one_news)
@@ -69,9 +70,9 @@ for stack_news in load_json('./dataset_public.json'):
 for text in send_data:
   target = sumextract(text, 1)
 
-  final_target = target.split(',')[0]
+  # final_target = target.split(',')[0]
 
-  print(final_target)
+  print(target)
 
 
 
