@@ -67,15 +67,11 @@ for stack_news in load_json(sys.argv[1]):
   send_data.append('. '.join(word_one))
 
 
-for text in send_data:
+dd = load_json(sys.argv[1])
+for i, text in enumerate(send_data):
   target = sumextract(text, 1)
 
   # final_target = target.split(',')[0]
 
-  print(target)
-
-
-
-
-
-
+  print(f"Old: {dd[i].get('title')}")
+  print(f'New: {target.capitalize()}\n')
